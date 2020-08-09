@@ -10,6 +10,8 @@ export default function bellmanFord(graph, startVertex) {
   // Init all distances with infinity assuming that currently we can't reach
   // any of the vertices except start one.
   distances[startVertex.getKey()] = 0;
+  
+  // [GT] can be optimized by storing the vertices in a variable so that the for loop below will not have to call getAllVertices again just for the length.
   graph.getAllVertices().forEach((vertex) => {
     previousVertices[vertex.getKey()] = null;
     if (vertex.getKey() !== startVertex.getKey()) {
